@@ -19,19 +19,21 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href=".styles/styles.css">
+    <link rel="stylesheet" href="./styles/styles.css" />
 
     <title>Frontend Mentor | Article preview component</title>
   </head>
   <body>
-    <main>
+    <main class="preview">
       <header>
         <img
+          class="banner-image"
           src="./images/drawers.jpg"
           alt="A green table with drawers against a white wall."
         />
       </header>
-      <article>
+
+      <article class="content">
         <h1>
           Shift the overall look and feel by adding these wonderful touches to
           furniture in your home
@@ -42,22 +44,35 @@
           felt slightly bare and uninviting. I&apos;ve got some simple tips to
           help you make any room feel complete.
         </p>
+      </article>
 
-        <footer>
-          <img src="./images/avatar-michelle.jpg" alt="Michelle's avatar." />
-          <p>
+      <footer class="footer">
+        <address class="publisher">
+          <img
+            class="avatar"
+            src="./images/avatar-michelle.jpg"
+            alt="Michelle's avatar."
+          />
+          <p class="details">
             <strong>Michelle Appleton</strong>
             <time datetime="2020-06-28">28 Jun 2020</time>
           </p>
-          <nav>
-            <span>Share</span>
+        </address>
+        <nav class="links-bar">
+          <div class="links">
+            <strong>Share</strong>
             <img src="./images/icon-facebook.svg" alt="facebook" />
             <img src="./images/icon-twitter.svg" alt="twitter" />
             <img src="./images/icon-pinterest.svg" alt="pinterest" />
+          </div>
+          <button class="share-button">
             <img src="./images/icon-share.svg" alt="share" />
-          </nav>
-        </footer>
-      </article>
+          </button>
+        </nav>
+        <button class="share-button">
+          <img src="./images/icon-share.svg" alt="share" />
+        </button>
+      </footer>
     </main>
   </body>
 </html>
