@@ -19,6 +19,7 @@ body {
   background-color: white;
   border-radius: 0.625rem;
   overflow: hidden;
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -55,7 +56,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
 }
 .footer .publisher {
   display: flex;
@@ -79,11 +79,7 @@ body {
   color: hsla(214deg, 17%, 51%, 0.75);
 }
 .footer .links-bar {
-  visibility: hidden;
   background-color: hsl(217deg, 19%, 35%);
-  position: absolute;
-  bottom: 0;
-  left: 0;
   height: 4rem;
   width: 100%;
   padding-inline: 2rem;
@@ -100,7 +96,13 @@ body {
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 0.5em;
-  color: white;
+  color: hsl(214deg, 17%, 66%);
+  font-size: 0.9em;
+}
+.footer .links-bar .links a {
+  display: flex;
+  align-items: center;
+  overflow: visible;
 }
 .footer .share-button {
   all: unset;
@@ -137,4 +139,18 @@ body {
   .preview .content {
     padding: 2rem;
   }
+}
+.hidden {
+  visibility: hidden;
+}
+
+.links-bar-mobile-position {
+  position: absolute;
+  bottom: -4rem;
+  left: 0;
+  transition: transform 0.5s;
+}
+
+.links-bar-mobile-roll-up {
+  transform: translateY(-4rem);
 }

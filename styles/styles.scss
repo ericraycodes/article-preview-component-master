@@ -4,6 +4,10 @@ $Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
 $Desaturated-Dark-Blue: hsl(214, 17%, 51%);
 $Grayish-Blue: hsl(212, 23%, 69%);
 $Light-Grayish-Blue: hsl(210, 46%, 95%);
+// other colors
+$Grey-1: hsl(210, 46%, 90%);
+$Grey-2: hsl(214, 17%, 66%);
+$Ouline-blue-1: hsl(210, 46%, 50%);
 // Font size
 $Body-font-size: calc(1rem*(13/16));
 
@@ -37,7 +41,7 @@ body {
     background-color: white;
     border-radius: 0.625rem;
     overflow: hidden;
-    // max-width: 30rem;
+    position: relative;
 
     // arrange content
     display: flex;
@@ -79,7 +83,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
 
     .publisher {
         // arrange content
@@ -109,13 +112,7 @@ body {
         }
     }
     .links-bar {
-        visibility: hidden;
         background-color: $Very-Dark-Grayish-Blue;
-
-        // position
-        position: absolute;
-        bottom: 0;
-        left: 0;
 
         // dimension
         height: 4rem;
@@ -137,7 +134,13 @@ body {
                 text-transform: uppercase;
                 font-weight: 500;
                 letter-spacing: 0.5em;
-                color: white;
+                color: $Grey-2;
+                font-size: 0.9em;
+            }
+            a {
+                display: flex;
+                align-items: center;
+                overflow: visible;
             }
         }
     }
@@ -163,10 +166,10 @@ body {
         // hover
         &:hover {
             cursor: pointer;
-            background-color: hsl(210, 46%, 90%);
+            background-color: $Grey-1;
         }
         &:focus-visible {
-            outline: 0.25rem solid hsl(210, 46%, 50%);
+            outline: 0.25rem solid $Ouline-blue-1;
         }
     }
 }
@@ -189,4 +192,25 @@ body {
             padding: 2rem;
         }
     }
+}
+
+
+// -----    PRE STYLED CLASSES
+
+// Hide
+.hidden {
+    visibility: hidden;
+}
+// Links bar hidden placement
+.links-bar-mobile-position {
+    // position
+    position: absolute;
+    bottom: -4rem;
+    left: 0;
+    // transition when visible
+    transition: transform 0.5s;
+}
+// links bar roll up
+.links-bar-mobile-roll-up {
+    transform: translateY(-4rem);
 }
