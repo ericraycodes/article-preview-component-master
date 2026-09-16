@@ -21,7 +21,6 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 }
 
 .banner-image {
@@ -33,12 +32,16 @@ body {
 
 .content {
   padding-inline: 2rem;
+  -webkit-padding-before: 2rem;
+          padding-block-start: 2rem;
+  -webkit-padding-after: 1.5rem;
+          padding-block-end: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 .content h1 {
-  font-size: 1rem;
+  font-size: 1.25em;
   font-weight: 700;
   color: hsl(217deg, 19%, 35%);
 }
@@ -49,9 +52,6 @@ body {
 }
 
 .footer {
-  padding-inline: 2rem;
-  -webkit-padding-after: 1.5rem;
-          padding-block-end: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -75,7 +75,6 @@ body {
   color: hsl(217deg, 19%, 35%);
 }
 .footer .publisher .details time {
-  font-size: 0.9em;
   font-weight: 500;
   color: hsla(214deg, 17%, 51%, 0.75);
 }
@@ -123,4 +122,19 @@ body {
 }
 .footer .share-button:focus-visible {
   outline: 0.25rem solid hsl(210deg, 46%, 50%);
+}
+
+@media screen and (min-width: 60rem) {
+  .preview {
+    max-width: 45.625rem;
+    flex-direction: row;
+  }
+  .preview .banner-image {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .preview .content {
+    padding: 2rem;
+  }
 }
