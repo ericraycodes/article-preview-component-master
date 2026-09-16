@@ -44,6 +44,9 @@ Users should be able to:
 
 ### What I learned
 
+I learned about `event.stopPropagation()` to stop event propagation.
+
+I learned about `event.target.closest()` to find the nearest specified ancestor of event-targeted children elements.
 
 ### Continued development
 
