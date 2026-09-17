@@ -8,156 +8,43 @@ body {
   font-family: "Manrope", sans-serif, Arial, Helvetica;
   font-size: 0.8125rem;
   min-height: 100vh;
-  padding-block: 4rem;
-  padding-inline: clamp(1.4933rem, 7.4667vw, 1.75rem);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-block: 4rem;
+  padding-inline: clamp(1.4933rem, 7.4667vw, 1.75rem);
 }
 
 .preview {
+  max-width: 28rem;
   background-color: white;
   border-radius: 0.625rem;
   overflow: hidden;
-  position: relative;
-  max-width: 28rem;
   display: flex;
   flex-direction: column;
 }
 
-.banner-image {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16/9;
+.banner .banner-image {
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.content {
-  padding-inline: clamp(1.7rem, 8.5333vw, 2rem);
-  -webkit-padding-before: clamp(1.7rem, 8.5333vw, 2rem);
-          padding-block-start: clamp(1.7rem, 8.5333vw, 2rem);
-  -webkit-padding-after: clamp(1.2rem, 6.4vw, 1.5rem);
-          padding-block-end: clamp(1.2rem, 6.4vw, 1.5rem);
-  display: flex;
-  flex-direction: column;
-  gap: clamp(0.8533rem, 4.2667vw, 1rem);
-}
-.content h1 {
-  font-size: 1.25em;
-  font-weight: 700;
-  color: hsl(217deg, 19%, 35%);
-}
-.content p {
-  color: hsl(214deg, 17%, 51%);
-  font-weight: 500;
-  line-height: 1.5;
-}
-
-.footer {
-  -webkit-padding-before: clamp(0.8533rem, 4.2667vw, 1rem);
-          padding-block-start: clamp(0.8533rem, 4.2667vw, 1rem);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.footer .publisher {
-  display: flex;
-  gap: 1rem;
-}
-.footer .publisher .avatar {
-  width: 2.5rem;
-  border-radius: 50%;
-}
-.footer .publisher .details {
-  font-style: normal;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-.footer .publisher .details strong {
-  color: hsl(217deg, 19%, 35%);
-}
-.footer .publisher .details time {
-  font-weight: 500;
-  color: hsla(214deg, 17%, 51%, 0.75);
-}
-.footer .links-bar {
-  background-color: hsl(217deg, 19%, 35%);
-  height: 4rem;
+  display: block;
+  aspect-ratio: 16/9;
   width: 100%;
-  padding-inline: clamp(1.7rem, 8.5333vw, 2rem);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.footer .links-bar .links {
-  display: flex;
-  gap: clamp(0.8533rem, 4.2667vw, 1rem);
-  justify-content: space-between;
-  align-items: center;
-}
-.footer .links-bar .links strong {
-  text-transform: uppercase;
-  font-weight: 500;
-  letter-spacing: 0.5em;
-  color: hsl(214deg, 17%, 66%);
-  font-size: 0.9em;
-}
-.footer .links-bar .links a {
-  display: flex;
-  align-items: center;
-  overflow: visible;
-}
-.footer .links-bar .share-icon {
-  background-color: hsl(214deg, 17%, 51%);
-  height: 2rem;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.footer .links-bar .share-icon svg > path {
-  fill: hsl(210deg, 46%, 95%);
-}
-.footer .share-button {
-  all: unset;
-  background-color: hsl(210deg, 46%, 95%);
-  border-radius: 50%;
-  height: 2rem;
-  aspect-ratio: 1/1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.footer .share-button img {
-  width: 45%;
-  aspect-ratio: 1/1;
-}
-.footer .share-button:hover {
-  cursor: pointer;
-  background-color: hsl(210deg, 46%, 90%);
-}
-.footer .share-button:focus-visible {
-  outline: 0.25rem solid hsl(210deg, 46%, 50%);
 }
 
-.hidden {
-  visibility: hidden;
-}
-
-.links-bar-mobile-position {
-  position: absolute;
-  bottom: -4rem;
-  left: 0;
-  transition: transform 0.5s;
-}
-
-.links-bar-mobile-roll-up {
-  transform: translateY(-4rem);
-}
-
-.links-bar-mobile-roll-down {
-  transform: translateY(0);
+@media screen and (min-width: 60rem) {
+  .preview {
+    max-width: unset;
+    width: 45.625rem;
+    flex-direction: row;
+  }
+  .banner {
+    width: 17.8125rem;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .banner .banner-image {
+    width: unset;
+    aspect-ratio: unset;
+  }
 }

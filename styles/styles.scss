@@ -11,8 +11,8 @@ $Ouline-blue-1: hsl(210, 46%, 50%);
 // Font size
 $Body-font-size: calc(1rem*(13/16));
 // Narrow screen responsive dimensions
-$Responsive-1_75rem: clamp(1.4933rem, 7.4667vw, 1.75rem);
 $Responsive-2rem: clamp(1.7rem , 8.5333vw, 2rem);
+$Responsive-1_75rem: clamp(1.4933rem, 7.4667vw, 1.75rem);
 $Responsive-1_5rem: clamp(1.2rem , 6.4vw, 1.5rem);
 $Responsie-1rem: clamp(0.8533rem, 4.2667vw, 1rem);
 
@@ -25,206 +25,71 @@ $Responsie-1rem: clamp(0.8533rem, 4.2667vw, 1rem);
 }
 
 body {
+    // styles
     background-color: $Light-Grayish-Blue;
 
     // typography
     font-family: "Manrope", sans-serif, Arial, Helvetica;
     font-size: $Body-font-size;
 
-    // arrange content
+    // center content
     min-height: 100vh;
-    padding-block: 4rem;
-    padding-inline: $Responsive-1_75rem;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    // box-spaces
+    padding-block: 4rem;
+    padding-inline: $Responsive-1_75rem;
 }
 
-// #        MOBILE DESIGN: 375px
-// ---  Preview
+// #    MOBILE LAYOUT: 320px
 .preview {
+    // dimension
+    max-width: 28rem;   // 448px
+
+    // styles
     background-color: white;
     border-radius: 0.625rem;
     overflow: hidden;
-    position: relative;
-    max-width: 28rem;   // 448px
 
-    // arrange content
+    // arrange content: vertical flow
     display: flex;
     flex-direction: column;
 }
-
-// --   Header
-.banner-image {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover; 
-}
-
-// --   Content
-.content {
-    // arrange content
-    padding-inline: $Responsive-2rem;
-    padding-block-start: $Responsive-2rem;
-    padding-block-end: $Responsive-1_5rem;
-    display: flex;
-    flex-direction: column;
-    gap: $Responsie-1rem;
-
-    h1 {
-        font-size: 1.25em;
-        font-weight: 700;
-        color: $Very-Dark-Grayish-Blue;
-    }
-    p{
-        color: $Desaturated-Dark-Blue;
-        font-weight: 500;
-        line-height: 1.5;
-    }
-}
-
-// --   Footer
-.footer {
-    // arrange content
-    padding-block-start: $Responsie-1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .publisher {
-        // arrange content
-        display: flex;
-        gap: 1rem;
-
-        .avatar {
-            width: 2.5rem;
-            border-radius: 50%;
-        }
-        .details {
-            font-style: normal;
-
-            // arrange content
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-
-            strong {
-                color: $Very-Dark-Grayish-Blue;
-            }
-            time {
-                // font-size: 0.9em;
-                font-weight: 500;
-                color: hsla(214, 17%, 51%, 0.75);
-            }
-        }
-    }
-    .links-bar {
-        background-color: $Very-Dark-Grayish-Blue;
-
-        // dimension
-        height: 4rem;
+.banner {
+    .banner-image {
+        // image-fit to container
+        object-fit: cover;
+        display: block;
+        aspect-ratio: 16/9;
         width: 100%;
-
-        // arrange content
-        padding-inline: $Responsive-2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .links {
-            // arrange content
-            display: flex;
-            gap: $Responsie-1rem;
-            justify-content: space-between;
-            align-items: center;
-
-            strong {
-                text-transform: uppercase;
-                font-weight: 500;
-                letter-spacing: 0.5em;
-                color: $Grey-2;
-                font-size: 0.9em;
-            }
-            a {
-                // arrange content
-                display: flex;
-                align-items: center;
-                overflow: visible;
-            }
-        }
-        .share-icon {
-            background-color: $Desaturated-Dark-Blue;
-            height: 2rem;
-            aspect-ratio: 1/1;
-            border-radius: 50%;
-
-            // arrange content
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            svg > path {
-                fill: $Light-Grayish-Blue;
-            }
-        }
     }
-    .share-button {
-        all: unset;
-        background-color: $Light-Grayish-Blue;
-        border-radius: 50%;
+}
 
+
+// #    DESKTOP LAYOUT: 960px
+@media screen and (min-width: 60rem) {
+    .preview {
         // dimension
-        height: 2rem;
-        aspect-ratio: 1/1;
+        max-width: unset;
+        width: 45.625rem;
 
-        // arrange content
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        // arrange content: horizontal flow
+        flex-direction: row;
+    }
+    .banner {
+        // dimension
+        width: 17.8125rem;
+        flex-shrink: 0;
 
-        img {
-            width: 45%;
-            aspect-ratio: 1/1;
-        }
+        // content
+        overflow: hidden;
 
-        // hover
-        &:hover {
-            cursor: pointer;
-            background-color: $Grey-1;
-        }
-        &:focus-visible {
-            outline: 0.25rem solid $Ouline-blue-1;
+        .banner-image {
+            // fit to container
+            width: unset;
+            aspect-ratio: unset;
         }
     }
-}
-// # end of:       MOBILE DESIGN
-
-
-// #        DESKTOP DESIGN: 960px
-// @media screen and (min-width: 60rem) {}
-
-
-// -----    PRE STYLED CLASSES
-
-// Hide
-.hidden {
-    visibility: hidden;
-}
-// Links bar hidden placement
-.links-bar-mobile-position {
-    // position
-    position: absolute;
-    bottom: -4rem;
-    left: 0;
-    // transition when visible
-    transition: transform 0.5s;
-}
-// links bar roll up
-.links-bar-mobile-roll-up {
-    transform: translateY(-4rem);
-}
-// links bar roll down
-.links-bar-mobile-roll-down {
-    transform: translateY(0);
 }

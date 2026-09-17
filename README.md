@@ -1,4 +1,4 @@
-# Frontend Mentor - Four card feature section solution
+# Frontend Mentor - Article preview component solution
 
 This is a solution to the [Article preview component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/article-preview-component-dYBN_pYFT). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
@@ -47,6 +47,8 @@ Users should be able to:
 I learned about `event.stopPropagation()` to stop event propagation.
 
 I learned about `event.target.closest()` to find the nearest specified ancestor of event-targeted children elements.
+
+I tried to layout *narrow* and *wider* screen simultaneously. I did it because I could not fix a bug when my mobile design was ok and I was styling for a *desktop* design.
 
 ### Continued development
 
