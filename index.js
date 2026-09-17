@@ -5,19 +5,22 @@ console.log("DOM body:", Boolean(body));
 // DOM REFERENCES
 const shareButton = document.getElementById("share-button");
 const linksBar = document.getElementById("links-bar");
-const shareIconWrapper = document.getElementById("share-icon");
+const shareIconWrapper = document.getElementById("share-icon")
 
 // fetch and append share icon
 fetch("./images/icon-share.svg")
-    .then(response => response.text())
-    .then(data => {
-        // console.log("data:", data);
-        shareIconWrapper.removeChild(shareIconWrapper.firstElementChild);
-        shareIconWrapper.innerHTML = data;
-    })
-    .catch(error => {
-        console.error("Fetch error:", error);
-    })
+  .then((response) => response.text())
+  .then((data) => {
+    // for the share button
+    shareButton.removeChild(shareButton.firstElementChild);
+    shareButton.innerHTML = data;
+    // share icon
+    shareIconWrapper.removeChild(shareIconWrapper.firstElementChild);
+    shareIconWrapper.innerHTML = data;
+  })
+  .catch((error) => {
+    console.error("Fetch error:", error);
+  });
 
 // Show to Users the social-links widget
 const showLinksBar = (e) => {
@@ -46,4 +49,3 @@ const hideLinksBar = (e) => {
   }
 };
 body.addEventListener("click", hideLinksBar);
-

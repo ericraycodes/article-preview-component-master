@@ -22,9 +22,10 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-.banner .banner-image {
+.banner-image {
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
@@ -32,10 +33,130 @@ body {
   width: 100%;
 }
 
+.content {
+  padding-inline: clamp(1.7rem, 8.5333vw, 2rem);
+  -webkit-padding-before: clamp(1.7rem, 8.5333vw, 2rem);
+          padding-block-start: clamp(1.7rem, 8.5333vw, 2rem);
+  -webkit-padding-after: clamp(1.2rem, 6.4vw, 1.5rem);
+          padding-block-end: clamp(1.2rem, 6.4vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8533rem, 4.2667vw, 1rem);
+}
+.content h1 {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: hsl(217deg, 19%, 35%);
+}
+.content p {
+  color: hsl(214deg, 17%, 51%);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.footer {
+  -webkit-padding-before: clamp(0.8533rem, 4.2667vw, 1rem);
+          padding-block-start: clamp(0.8533rem, 4.2667vw, 1rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.publisher {
+  display: flex;
+  gap: 1rem;
+}
+.publisher .avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+.publisher .details {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.publisher .details strong {
+  color: hsl(217deg, 19%, 35%);
+}
+.publisher .details time {
+  font-weight: 500;
+  color: hsla(214deg, 17%, 51%, 0.75);
+}
+
+.share-button {
+  all: unset;
+  height: 2rem;
+  aspect-ratio: 1/1;
+  background-color: hsl(210deg, 46%, 95%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.share-button svg > path {
+  fill: hsl(214deg, 17%, 51%);
+}
+.share-button:hover {
+  cursor: pointer;
+  background-color: hsl(214deg, 17%, 51%);
+}
+.share-button:hover svg > path {
+  fill: hsl(210deg, 46%, 95%);
+}
+.share-button:focus-visible {
+  outline: 0.25rem solid hsl(210deg, 46%, 50%);
+}
+
+.links-bar {
+  background-color: hsl(217deg, 19%, 35%);
+  padding-inline: clamp(1.7rem, 8.5333vw, 2rem);
+  height: 4rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  bottom: -4rem;
+}
+.links-bar .links {
+  display: flex;
+  gap: clamp(0.8533rem, 4.2667vw, 1rem);
+  justify-content: space-between;
+  align-items: center;
+}
+.links-bar .links strong {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.5em;
+  color: hsl(214deg, 17%, 66%);
+  font-size: 0.9em;
+}
+.links-bar .links a {
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+.links-bar .share-icon {
+  height: 2rem;
+  aspect-ratio: 1/1;
+  background-color: hsl(214deg, 17%, 51%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.links-bar .share-icon svg > path {
+  fill: hsl(210deg, 46%, 95%);
+}
+
 @media screen and (min-width: 60rem) {
   .preview {
     max-width: unset;
     width: 45.625rem;
+    height: 17.5rem;
     flex-direction: row;
   }
   .banner {
@@ -46,5 +167,36 @@ body {
   .banner .banner-image {
     width: unset;
     aspect-ratio: unset;
+    height: 100%;
   }
+  .content {
+    padding-block: 2rem;
+    padding-inline: 2.5rem;
+    gap: unset;
+    justify-content: space-between;
+  }
+  .content h1 {
+    font-size: 1.5em;
+  }
+  .footer {
+    padding: unset;
+  }
+}
+.hidden {
+  visibility: hidden;
+}
+
+.links-bar-mobile-position {
+  position: absolute;
+  bottom: -4rem;
+  left: 0;
+  transition: transform 0.25s;
+}
+
+.links-bar-mobile-roll-up {
+  transform: translateY(-4rem);
+}
+
+.links-bar-mobile-roll-down {
+  transform: translateY(0);
 }
