@@ -11,6 +11,7 @@ $Ouline-blue-1: hsl(210, 46%, 50%);
 // Font size
 $Body-font-size: calc(1rem*(13/16));
 // Narrow screen responsive dimensions
+$Responsive-1_75rem: clamp(1.4933rem, 7.4667vw, 1.75rem);
 $Responsive-2rem: clamp(1.7rem , 8.5333vw, 2rem);
 $Responsive-1_5rem: clamp(1.2rem , 6.4vw, 1.5rem);
 $Responsie-1rem: clamp(0.8533rem, 4.2667vw, 1rem);
@@ -33,7 +34,7 @@ body {
     // arrange content
     min-height: 100vh;
     padding-block: 4rem;
-    padding-inline: $Responsive-1_5rem;
+    padding-inline: $Responsive-1_75rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,6 +47,7 @@ body {
     border-radius: 0.625rem;
     overflow: hidden;
     position: relative;
+    max-width: 28rem;   // 448px
 
     // arrange content
     display: flex;
@@ -54,8 +56,9 @@ body {
 
 // --   Header
 .banner-image {
+    display: block;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16/9;
     object-fit: cover; 
 }
 
@@ -84,6 +87,7 @@ body {
 // --   Footer
 .footer {
     // arrange content
+    padding-block-start: $Responsie-1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -198,22 +202,7 @@ body {
 
 
 // #        DESKTOP DESIGN: 960px
-@media screen and (min-width: 60rem) {
-    .preview {
-        // arrange content
-        max-width: 45.625rem; // 730px
-        flex-direction: row;
-
-        .banner-image {
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .content {
-            padding: 2rem;
-        }
-    }
-}
+// @media screen and (min-width: 60rem) {}
 
 
 // -----    PRE STYLED CLASSES

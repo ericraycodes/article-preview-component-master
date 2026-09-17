@@ -9,7 +9,7 @@ body {
   font-size: 0.8125rem;
   min-height: 100vh;
   padding-block: 4rem;
-  padding-inline: clamp(1.2rem, 6.4vw, 1.5rem);
+  padding-inline: clamp(1.4933rem, 7.4667vw, 1.75rem);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,11 +20,13 @@ body {
   border-radius: 0.625rem;
   overflow: hidden;
   position: relative;
+  max-width: 28rem;
   display: flex;
   flex-direction: column;
 }
 
 .banner-image {
+  display: block;
   width: 100%;
   aspect-ratio: 16/9;
   -o-object-fit: cover;
@@ -53,6 +55,8 @@ body {
 }
 
 .footer {
+  -webkit-padding-before: clamp(0.8533rem, 4.2667vw, 1rem);
+          padding-block-start: clamp(0.8533rem, 4.2667vw, 1rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -139,20 +143,6 @@ body {
   outline: 0.25rem solid hsl(210deg, 46%, 50%);
 }
 
-@media screen and (min-width: 60rem) {
-  .preview {
-    max-width: 45.625rem;
-    flex-direction: row;
-  }
-  .preview .banner-image {
-    height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-  .preview .content {
-    padding: 2rem;
-  }
-}
 .hidden {
   visibility: hidden;
 }
