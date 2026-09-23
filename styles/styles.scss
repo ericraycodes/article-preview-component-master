@@ -8,144 +8,223 @@ $Light-Grayish-Blue: hsl(210, 46%, 95%);
 $Grey-1: hsl(210, 46%, 90%);
 $Grey-2: hsl(214, 17%, 66%);
 $Grey-3: hsla(214, 17%, 51%, 0.75);
+$Grey-hover: hsla(210, 30%, 60%, .5);
 $Ouline-blue-1: hsl(210, 46%, 50%);
 // Font size
-$Body-font-size: calc(1rem*(13/16));
+$Body-font-size: calc(1rem * (13 / 16));
 // Narrow screen responsive dimensions
-$Responsive-2rem: clamp(1.7rem , 8.5333vw, 2rem);
+$Responsive-2rem: clamp(1.7rem, 8.5333vw, 2rem);
 $Responsive-1_75rem: clamp(1.4933rem, 7.4667vw, 1.75rem);
-$Responsive-1_5rem: clamp(1.2rem , 6.4vw, 1.5rem);
+$Responsive-1_5rem: clamp(1.2rem, 6.4vw, 1.5rem);
 $Responsie-1rem: clamp(0.8533rem, 4.2667vw, 1rem);
-
 
 // INITIAL RULES
 * {
-    // box
-    box-sizing: border-box;
-    margin: 0;
+  // box
+  box-sizing: border-box;
+  margin: 0;
 }
 
 body {
-    // styles
-    background-color: $Light-Grayish-Blue;
+  // styles
+  background-color: $Light-Grayish-Blue;
 
-    // typography
-    font-family: "Manrope", sans-serif, Arial, Helvetica;
-    font-size: $Body-font-size;
+  // typography
+  font-family: "Manrope", sans-serif, Arial, Helvetica;
+  font-size: $Body-font-size;
 
-    // center content
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  // center content
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    // box-spaces
-    padding-block: 4rem;
-    padding-inline: $Responsive-1_75rem;
+  // box-spaces
+  padding-block: 4rem;
+  padding-inline: $Responsive-1_75rem;
 }
 
 // #            MOBILE LAYOUT: 320px
 
 // --   PREVIEW
 .preview {
-    // dimension
-    max-width: 28rem;   // 448px
+  // dimension
+  max-width: 28rem; // 448px
 
-    // styles
-    background-color: white;
-    border-radius: 0.625rem;
-    overflow: hidden;
+  // styles
+  background-color: white;
+  border-radius: 0.625rem;
+  overflow: hidden;
 
-    // arrange content: vertical flow
-    display: flex;
-    flex-direction: column;
+  // arrange content: vertical flow
+  display: flex;
+  flex-direction: column;
 
-    // ancestor for the hidden .links-bar
-    position: relative;
+  // ancestor for the hidden .links-bar
+  position: relative;
 }
 
 // --   BANNER
 .banner-image {
-    // image-fit to container
-    object-fit: cover;
-    display: block;
-    aspect-ratio: 16/9;
-    width: 100%;
+  // image-fit to container
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 16/9;
+  width: 100%;
 }
 
 // --   CONTENT
 .content {
-    // box spaces
-    padding-inline: $Responsive-2rem;
-    padding-block-start: $Responsive-2rem;
-    padding-block-end: $Responsive-1_5rem;
+  // box spaces
+  padding-inline: $Responsive-2rem;
+  padding-block-start: $Responsive-2rem;
+  padding-block-end: $Responsive-1_5rem;
 
-    // arrange content
-    display: flex;
-    flex-direction: column;
-    gap: $Responsie-1rem;
+  // arrange content
+  display: flex;
+  flex-direction: column;
+  gap: $Responsie-1rem;
 
-    // --   Children
-    h1 {
-        // typography
-        font-size: 1.25em;
-        font-weight: 700;
-        color: $Very-Dark-Grayish-Blue;
-    }
-    p{
-        // typography
-        color: $Desaturated-Dark-Blue;
-        font-weight: 500;
-        line-height: 1.5;
-    }
+  // --   Children
+  h1 {
+    // typography
+    font-size: 1.25em;
+    font-weight: 700;
+    color: $Very-Dark-Grayish-Blue;
+  }
+  p {
+    // typography
+    color: $Desaturated-Dark-Blue;
+    font-weight: 500;
+    line-height: 1.5;
+  }
 }
 
 // --   FOOTER
 .footer {
-    // box spaces
-    padding-block-start: $Responsie-1rem;
-    
-    // arrange content
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  // box spaces
+  padding-block-start: $Responsie-1rem;
+
+  // arrange content
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .publisher {
+  // arrange content
+  display: flex;
+  gap: 1rem;
+
+  // --   Children
+  .avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+  }
+  .details {
+    font-style: normal;
+
     // arrange content
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
+    justify-content: space-around;
 
-    // --   Children
-    .avatar {
-        width: 2.5rem;
-        height: 2.5rem;
-        border-radius: 50%;
+    // ---  .details' Children
+    strong {
+      color: $Very-Dark-Grayish-Blue;
     }
-    .details {
-        font-style: normal;
-
-        // arrange content
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-
-        // ---  .details' Children
-        strong {
-            color: $Very-Dark-Grayish-Blue;
-        }
-        time {
-            font-weight: 500;
-            color: $Grey-3;
-        }
+    time {
+      font-weight: 500;
+      color: $Grey-3;
     }
+  }
 }
 .share-button {
-    all: unset;
+  all: unset;
 
+  // dimension, styles
+  height: 2rem;
+  aspect-ratio: 1/1;
+  background-color: $Light-Grayish-Blue;
+  border-radius: 50%;
+
+  // arrange content
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // --   Children
+  svg > path {
+    // arrow color
+    fill: $Desaturated-Dark-Blue;
+  }
+   // hover
+   &:hover {
+    cursor: pointer;
+    background-color: $Grey-hover;
+  }
+  // active
+  &:active { 
+    background-color: $Desaturated-Dark-Blue;
+
+    svg > path {
+      // change the arrow color
+      fill: $Light-Grayish-Blue;
+    }
+  }
+  &:focus-visible {
+    outline: 0.25rem solid $Ouline-blue-1;
+  }
+}
+.links-bar {
+  // styles, spaces
+  background-color: $Very-Dark-Grayish-Blue;
+  padding-inline: $Responsive-2rem;
+
+  // dimension
+  height: 4rem;
+  width: 100%;
+
+  // arrange content
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  // position
+  position: absolute;
+
+  // hidden
+  visibility: hidden;
+
+  // --   Children
+  .links {
+    // arrange content
+    display: flex;
+    gap: $Responsie-1rem;
+    justify-content: space-between;
+    align-items: center;
+
+    // ---  .links' Children
+    strong {
+      // typography
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.5em;
+      color: $Grey-2;
+      font-size: 0.9em;
+    }
+    a {
+      // arrange content
+      display: flex;
+      align-items: center;
+      overflow: visible;
+    }
+  }
+  .share-icon {
     // dimension, styles
     height: 2rem;
     aspect-ratio: 1/1;
-    background-color: $Light-Grayish-Blue;
+    background-color: $Desaturated-Dark-Blue;
     border-radius: 50%;
 
     // arrange content
@@ -153,150 +232,78 @@ body {
     align-items: center;
     justify-content: center;
 
-    // --   Children
     svg > path {
-        // arrow color
-        fill: $Desaturated-Dark-Blue;
+      fill: $Light-Grayish-Blue;
     }
-    // hover
-    &:hover {
-        cursor: pointer;
-        background-color: $Desaturated-Dark-Blue;
-    }
-    &:hover svg > path {
-        // arrow color
-        fill: $Light-Grayish-Blue;
-    }
-    &:focus-visible {
-        outline: 0.25rem solid $Ouline-blue-1;
-    }
-}
-.links-bar {
-    // styles, spaces
-    background-color: $Very-Dark-Grayish-Blue;
-    padding-inline: $Responsive-2rem;
-
-    // dimension
-    height: 4rem;
-    width: 100%;
-
-    // arrange content
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    // position
-    position: absolute;
-    left: 0;
-    bottom: -4rem;
-
-    // --   Children
-    .links {
-        // arrange content
-        display: flex;
-        gap: $Responsie-1rem;
-        justify-content: space-between;
-        align-items: center;
-
-        // ---  .links' Children
-        strong {
-            // typography
-            text-transform: uppercase;
-            font-weight: 500;
-            letter-spacing: 0.5em;
-            color: $Grey-2;
-            font-size: 0.9em;
-        }
-        a {
-            // arrange content
-            display: flex;
-            align-items: center;
-            overflow: visible;
-        }
-    }
-    .share-icon {
-        // dimension, styles
-        height: 2rem;
-        aspect-ratio: 1/1;
-        background-color: $Desaturated-Dark-Blue;
-        border-radius: 50%;
-
-        // arrange content
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        svg > path {
-            fill: $Light-Grayish-Blue;
-        }
-    }
+  }
 }
 // # end of: MOBILE LAYOUT
 
-
 // #            DESKTOP LAYOUT: 960px
 @media screen and (min-width: 60rem) {
-    .preview {
-        // dimension
-        max-width: unset;
-        width: 45.625rem;   // 730px
-        height: 17.5rem;    // 280px
+  .preview {
+    // dimension
+    max-width: unset;
+    width: 45.625rem; // 730px
+    height: 17.5rem; // 280px
 
-        // arrange content: horizontal flow
-        flex-direction: row;
-    }
-    .banner {
-        // dimension
-        width: 17.8125rem;
-        flex-shrink: 0;
+    // arrange content: horizontal flow
+    flex-direction: row;
+  }
+  .banner {
+    // dimension
+    width: 17.8125rem;
+    flex-shrink: 0;
 
-        // content
-        overflow: hidden;
+    // content
+    overflow: hidden;
 
-        .banner-image {
-            // fit to container
-            width: unset;
-            aspect-ratio: unset;
-            height: 100%;
-        }
+    .banner-image {
+      // fit to container
+      width: unset;
+      aspect-ratio: unset;
+      height: 100%;
     }
-    .content { 
-        // spaces
-        padding-block: 2rem;
-        padding-inline: 2.5rem;
-        gap: unset;
-        justify-content: space-between;
+  }
+  .content {
+    // spaces
+    padding-block: 2rem;
+    padding-inline: 2.5rem;
+    gap: unset;
+    justify-content: space-between;
 
-        h1 {
-            font-size: 1.5em;
-        }
+    h1 {
+      font-size: 1.5em;
     }
-    .footer {
-        padding: unset;
-    }
+  }
+  .footer {
+    padding: unset;
+  }
 }
+// # end of: DESKTOP LAYOUT
 
 
-// -----    PRE STYLED CLASSES
+// -----    PRE STYLED CLASSES FOR LINKS WIDGET
 
-// Hide
-.hidden {
-    visibility: hidden;
+// show
+.visible {
+  visibility: visible;
 }
-// Links bar hidden placement
-.links-bar-mobile-position {
+// .mobile {
+  // Links bar hidden placement
+  .links-bar-mobile {
     // position
-    position: absolute;
     bottom: -4rem;
     left: 0;
     // transition when visible
     transition: transform 0.25s;
-}
-// links bar roll up
-.links-bar-mobile-roll-up {
+  }
+  // links bar roll up
+  .links-bar-mobile-roll-up {
     transform: translateY(-4rem);
-}
-// links bar roll down
-.links-bar-mobile-roll-down {
+  }
+  // links bar roll down
+  .links-bar-mobile-roll-down {
     transform: translateY(0);
-}
+  }
+// }

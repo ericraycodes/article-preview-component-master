@@ -12,6 +12,10 @@
       href="./images/favicon-32x32.png"
     />
 
+    <meta
+      name="description"
+      content="An article preview component. A JavaScript Fundamentals learning path project from FrontendMentor."
+    />
     <!-- Font 'Manrope' Variable weight -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -46,7 +50,7 @@
           help you make any room feel complete.
         </p>
 
-        <footer class="footer">
+        <footer class="footer" id="footer">
           <address class="publisher">
             <img
               class="avatar"
@@ -58,28 +62,34 @@
               <time datetime="2020-06-28">28 Jun 2020</time>
             </p>
           </address>
-          
-          <button id="share-button" class="share-button">
-            <img src="./images/icon-share.svg" alt="share" />
+
+          <button
+            id="share-button"
+            class="share-button"
+            aria-label="share article"
+          >
+            <img id="img-share-button" src="./images/icon-share.svg" alt="share" />
           </button>
 
-          <nav id="links-bar" class="links-bar links-bar-mobile-position hidden">
-            <div class="links">
-              <strong>Share</strong>
-              <a href="#" target="_blank"
-                ><img src="./images/icon-facebook.svg" alt="facebook"
-              /></a>
-              <a href="#" target="_blank"
-                ><img src="./images/icon-twitter.svg" alt="twitter"
-              /></a>
-              <a href="#" target="_blank"
-                ><img src="./images/icon-pinterest.svg" alt="pinterest"
-              /></a>
-            </div>
-            <span id="share-icon" class="share-icon">
-              <img src="./images/icon-share.svg" alt="share" />
-            </span>
-          </nav>
+          <template id="template-links-bar">
+            <nav id="links-bar" class="links-bar">
+              <div class="links">
+                <strong>Share</strong>
+                <a href="#" target="_blank"
+                  ><img src="./images/icon-facebook.svg" alt="facebook"
+                /></a>
+                <a href="#" target="_blank"
+                  ><img src="./images/icon-twitter.svg" alt="twitter"
+                /></a>
+                <a href="#" target="_blank"
+                  ><img src="./images/icon-pinterest.svg" alt="pinterest"
+                /></a>
+              </div>
+              <span id="share-icon-wrapper" class="share-icon">
+                <img id="img-share-icon-wrapper" src="./images/icon-share.svg" alt="share" />
+              </span>
+            </nav>
+          </template>
         </footer>
       </article>
     </main>

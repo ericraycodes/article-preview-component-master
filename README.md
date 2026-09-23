@@ -44,11 +44,13 @@ Users should be able to:
 
 ### What I learned
 
-I learned about `event.stopPropagation()` to stop event propagation.
+I tried to layout *narrow* and *wider* screen simultaneously. I did it because I could not fix a bug when my mobile design was ok and I was styling for a *desktop* design.
+
+I learned to attach an event-listener to the whole body and add dynamics to select event-targets.
 
 I learned about `event.target.closest()` to find the nearest specified ancestor of event-targeted children elements.
 
-I tried to layout *narrow* and *wider* screen simultaneously. I did it because I could not fix a bug when my mobile design was ok and I was styling for a *desktop* design.
+
 
 ### Continued development
 

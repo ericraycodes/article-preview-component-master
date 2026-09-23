@@ -100,9 +100,12 @@ body {
 }
 .share-button:hover {
   cursor: pointer;
+  background-color: hsla(210deg, 30%, 60%, 0.5);
+}
+.share-button:active {
   background-color: hsl(214deg, 17%, 51%);
 }
-.share-button:hover svg > path {
+.share-button:active svg > path {
   fill: hsl(210deg, 46%, 95%);
 }
 .share-button:focus-visible {
@@ -118,8 +121,7 @@ body {
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  left: 0;
-  bottom: -4rem;
+  visibility: hidden;
 }
 .links-bar .links {
   display: flex;
@@ -182,12 +184,11 @@ body {
     padding: unset;
   }
 }
-.hidden {
-  visibility: hidden;
+.visible {
+  visibility: visible;
 }
 
-.links-bar-mobile-position {
-  position: absolute;
+.links-bar-mobile {
   bottom: -4rem;
   left: 0;
   transition: transform 0.25s;
