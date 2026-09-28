@@ -343,22 +343,24 @@ body {
       opacity: 1;
       transition: opacity 0.125s ease-in-out;
     }
-    .links-bar-show::after {
-      // box style, blend with parent
-      content: "";
-      background-color: inherit;
+    @supports (clip-path: polygon(0 0, 100% 0, 50% 50%)) {
+      .links-bar-show::after {
+        // box style, blend with parent
+        content: "";
+        background-color: inherit;
 
-      // dimenstion
-      height: 1.5rem;
-      aspect-ratio: 1/1;
+        // dimenstion
+        height: 1.5rem;
+        aspect-ratio: 1/1;
 
-      // position, absolute
-      position: inherit;
-      left: calc(50% - 0.75rem);
-      bottom: -1.5rem;
+        // position, absolute
+        position: inherit;
+        left: calc(50% - 0.75rem);
+        bottom: -1.5rem;
 
-      // shape: inverted triangle
-      clip-path: polygon(0 0, 100% 0, 50% 50%);
+        // shape: inverted triangle
+        clip-path: polygon(0 0, 100% 0, 50% 50%);
+      }
     }
     .links-bar-hide {
       opacity: 0;

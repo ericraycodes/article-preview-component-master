@@ -226,16 +226,18 @@ body {
     opacity: 1;
     transition: opacity 0.125s ease-in-out;
   }
-  .footer .links-bar-show::after {
-    content: "";
-    background-color: inherit;
-    height: 1.5rem;
-    aspect-ratio: 1/1;
-    position: inherit;
-    left: calc(50% - 0.75rem);
-    bottom: -1.5rem;
-    -webkit-clip-path: polygon(0 0, 100% 0, 50% 50%);
-            clip-path: polygon(0 0, 100% 0, 50% 50%);
+  @supports ((-webkit-clip-path: polygon(0 0, 100% 0, 50% 50%)) or (clip-path: polygon(0 0, 100% 0, 50% 50%))) {
+    .footer .links-bar-show::after {
+      content: "";
+      background-color: inherit;
+      height: 1.5rem;
+      aspect-ratio: 1/1;
+      position: inherit;
+      left: calc(50% - 0.75rem);
+      bottom: -1.5rem;
+      -webkit-clip-path: polygon(0 0, 100% 0, 50% 50%);
+              clip-path: polygon(0 0, 100% 0, 50% 50%);
+    }
   }
   .footer .links-bar-hide {
     opacity: 0;

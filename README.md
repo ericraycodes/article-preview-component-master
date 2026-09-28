@@ -52,11 +52,9 @@ I learned about `event.target.closest()` to find the nearest specified ancestor 
 
 I learned that you can only use a *DOM node* once for one location in the DOM. I used `document.cloneNode()` to clone the node and use for another area of the DOM.
 
-Since older browsers do not support CSS `polygon()` and `shape()` to create complex shapes, I decided to make fallback shapes for the said browsers. And I used `@supports` to apply such CSS tools for browsers that supports.
+Since older browsers do not support CSS `polygon()` to create complex shapes, I decided to make fallback shapes for the said browsers. And I used `@supports` to apply such CSS tools for browsers that supports modern CSS styles.
 
 I learned about CSS `width: fit-content`.
-
-I learned about `element.getBoundingClientRect()` to find coordinates of DOM elements in the viewport.
 
 ### Continued development
 
