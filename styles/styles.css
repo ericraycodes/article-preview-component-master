@@ -13,6 +13,7 @@ body {
   align-items: center;
   padding-block: 4rem;
   padding-inline: clamp(1.4933rem, 7.4667vw, 1.75rem);
+  min-width: 20rem;
 }
 
 .preview {
@@ -25,7 +26,7 @@ body {
   position: relative;
 }
 
-.banner-image {
+.banner .banner-image {
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
@@ -112,6 +113,20 @@ body {
   outline: 0.25rem solid hsl(210deg, 46%, 50%);
 }
 
+.clicked {
+  background-color: hsl(214deg, 17%, 51%);
+}
+.clicked svg > path {
+  fill: hsl(210deg, 46%, 95%);
+}
+
+.clicked:hover {
+  background-color: hsl(214deg, 17%, 51%);
+}
+.clicked:hover svg > path {
+  fill: hsl(210deg, 46%, 95%);
+}
+
 .links-bar {
   background-color: hsl(217deg, 19%, 35%);
   padding-inline: clamp(1.7rem, 8.5333vw, 2rem);
@@ -121,7 +136,10 @@ body {
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  visibility: hidden;
+  transform: translateY(0);
+  bottom: -4rem;
+  left: 0;
+  transition: transform 0.15s;
 }
 .links-bar .links {
   display: flex;
@@ -154,17 +172,29 @@ body {
   fill: hsl(210deg, 46%, 95%);
 }
 
+.links-bar-show {
+  transform: translateY(-4rem);
+}
+
+.links-bar-hide {
+  transform: translateY(0);
+}
+
 @media screen and (min-width: 60rem) {
   .preview {
     max-width: unset;
     width: 45.625rem;
     height: 17.5rem;
     flex-direction: row;
+    position: unset;
+    overflow: unset;
   }
   .banner {
     width: 17.8125rem;
     flex-shrink: 0;
     overflow: hidden;
+    border-top-left-radius: 0.625rem;
+    border-bottom-left-radius: 0.625rem;
   }
   .banner .banner-image {
     width: unset;
@@ -182,22 +212,46 @@ body {
   }
   .footer {
     padding: unset;
+    position: relative;
+  }
+  .footer .links-bar-show {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 3.5rem;
+    border-radius: 0.625rem;
+    top: -1rem;
+    left: unset;
+    right: -6.5rem;
+    opacity: 1;
+    transition: opacity 0.125s ease-in-out;
+  }
+  .footer .links-bar-show::after {
+    content: "";
+    background-color: inherit;
+    height: 1.5rem;
+    aspect-ratio: 1/1;
+    position: inherit;
+    left: calc(50% - 0.75rem);
+    bottom: -1.5rem;
+    -webkit-clip-path: polygon(0 0, 100% 0, 50% 50%);
+            clip-path: polygon(0 0, 100% 0, 50% 50%);
+  }
+  .footer .links-bar-hide {
+    opacity: 0;
+  }
+  .footer .links-bar > .share-icon {
+    display: none;
   }
 }
 .visible {
   visibility: visible;
 }
 
-.links-bar-mobile {
-  bottom: -4rem;
-  left: 0;
-  transition: transform 0.25s;
+.hidden {
+  visibility: hidden;
 }
 
-.links-bar-mobile-roll-up {
-  transform: translateY(-4rem);
-}
-
-.links-bar-mobile-roll-down {
-  transform: translateY(0);
+.no-display {
+  display: none;
 }

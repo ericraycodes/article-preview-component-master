@@ -3,73 +3,63 @@ const body = document.querySelector("body");
 console.log("DOM body:", Boolean(body));
 
 // DOM REFERENCES
+const preview = document.getElementById("preview");
 const footer = document.getElementById("footer");
 const shareButton = document.getElementById("share-button");
-const templateLinksBar = document.getElementById("template-links-bar");
-let linksBar;
-let shareIconWrapper;
+const linksBar = document.getElementById("links-bar");
+const shareIconWrapper = document.getElementById("share-icon-wrapper");
 
-// APPEND SVG ICONS
+// APPEND icon-share.svg
 fetch("./images/icon-share.svg")
   .then((response) => response.text())
   .then((data) => {
     // make the string of xml code into adoptable DOM node
     const domParser = new DOMParser();
-    const xmlDoc = domParser.parseFromString(data, "text/xml")
+    const xmlDoc = domParser.parseFromString(data, "text/xml");
     const shareIconSVG = xmlDoc.querySelector("svg");
 
-    // replace the <img> with <svg> wihthin the #share-button
+    // replace the <img> with <svg> within the #share-button and #share-icon-wrapper
     shareButton.replaceChild(shareIconSVG, shareButton.firstElementChild);
-    
-    // replace the <img> with <svg> wihthin the #share-icon-wrapper
-    const shareIconWrapper = templateLinksBar.content.querySelector("#share-icon-wrapper");
     const shareIconSVGClone = shareIconSVG.cloneNode(true);
-    shareIconWrapper.replaceChild(shareIconSVGClone, shareIconWrapper.firstElementChild)
+    shareIconWrapper.replaceChild(
+      shareIconSVGClone,
+      shareIconWrapper.firstElementChild
+    );
   })
   .catch((error) => {
-    console.error("Fetch error:", error);
+    console.error("Append icon-share.svg error:", error);
   });
 
 // SHOW OR HIDE LINKS BAR
 const showOrHideLinksBar = (event) => {
-  console.log("clicked:", event.target);
-
-  // append links bar at first event
-  if (!linksBar) {
-    // append cloned #links-bar to the dom
-    const templateLinksBarClone = templateLinksBar.content.cloneNode(true);
-    footer.appendChild(templateLinksBarClone);
-
-    // reference the #links-bar in memory
-    linksBar = document.getElementById("links-bar");
-  }
-
-  // When #share-button is 'clicked' and on mobile/tablet screenwidth
+  // When #share-button is 'clicked'
   if (
-    event.target.closest("#share-button") && 
-    window.innerWidth < 960
+    event.target.closest("#share-button") &&
+    !shareButton.classList.contains("clicked")
   ) {
-    // mobile placement
-    linksBar.classList.add("links-bar-mobile");
     // show
-    linksBar.classList.add("visible");
-    // roll up
-    linksBar.classList.remove("links-bar-mobile-roll-down");
-    linksBar.classList.add("links-bar-mobile-roll-up");
+    linksBar.classList.remove("no-display");
+    setTimeout(() => {
+      linksBar.classList.remove("hidden");
+      linksBar.classList.remove("links-bar-hide");
+      linksBar.classList.add("links-bar-show");
+      shareButton.classList.add("clicked");
+    }, 100);
   }
-  // When #links-bar is not 'clicked' and on mobile/tablet screenwidth
+  // When #links-bar is not 'clicked'
   else if (
-    !event.target.closest("#links-bar") && 
-    window.innerWidth < 960
+    !event.target.closest("#links-bar") &&
+    shareButton.classList.contains("clicked")
   ) {
-    console.log("closest", event.target.closest("#links-bar"));
     // wait for the roll down transition to finish before hiding
-    setTimeout(250, () => {
-      linksBar.classList.remove("visible");
-    });
-    // roll down
-    linksBar.classList.add("links-bar-mobile-roll-down");
-    linksBar.classList.remove("links-bar-mobile-roll-up");
+    setTimeout(() => {
+      linksBar.classList.add("hidden");
+      linksBar.classList.add("no-display");
+    }, 150);
+    // hide
+    linksBar.classList.add("links-bar-hide");
+    linksBar.classList.remove("links-bar-show");
+    shareButton.classList.remove("clicked");
   }
 };
 body.addEventListener("click", showOrHideLinksBar);

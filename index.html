@@ -29,7 +29,7 @@
     <title>Frontend Mentor | Article preview component</title>
   </head>
   <body>
-    <main class="preview">
+    <main id="preview" class="preview">
       <header class="banner">
         <img
           class="banner-image"
@@ -68,28 +68,34 @@
             class="share-button"
             aria-label="share article"
           >
-            <img id="img-share-button" src="./images/icon-share.svg" alt="share" />
+            <img
+              id="img-share-button"
+              src="./images/icon-share.svg"
+              alt="share"
+            />
           </button>
 
-          <template id="template-links-bar">
-            <nav id="links-bar" class="links-bar">
-              <div class="links">
-                <strong>Share</strong>
-                <a href="#" target="_blank"
-                  ><img src="./images/icon-facebook.svg" alt="facebook"
-                /></a>
-                <a href="#" target="_blank"
-                  ><img src="./images/icon-twitter.svg" alt="twitter"
-                /></a>
-                <a href="#" target="_blank"
-                  ><img src="./images/icon-pinterest.svg" alt="pinterest"
-                /></a>
-              </div>
-              <span id="share-icon-wrapper" class="share-icon">
-                <img id="img-share-icon-wrapper" src="./images/icon-share.svg" alt="share" />
-              </span>
-            </nav>
-          </template>
+          <nav id="links-bar" class="links-bar hidden no-display">
+            <div class="links">
+              <strong>Share</strong>
+              <a href="#" target="_blank"
+                ><img src="./images/icon-facebook.svg" alt="facebook"
+              /></a>
+              <a href="#" target="_blank"
+                ><img src="./images/icon-twitter.svg" alt="twitter"
+              /></a>
+              <a href="#" target="_blank"
+                ><img src="./images/icon-pinterest.svg" alt="pinterest"
+              /></a>
+            </div>
+            <span id="share-icon-wrapper" class="share-icon">
+              <img
+                id="img-share-icon-wrapper"
+                src="./images/icon-share.svg"
+                alt="share"
+              />
+            </span>
+          </nav>
         </footer>
       </article>
     </main>

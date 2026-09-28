@@ -46,11 +46,17 @@ Users should be able to:
 
 I tried to layout *narrow* and *wider* screen simultaneously. I did it because I could not fix a bug when my mobile design was ok and I was styling for a *desktop* design.
 
-I learned to attach an event-listener to the whole body and add dynamics to select event-targets.
+I learned to attach an event-listener to the whole body and only add dynamics to selected event-targets.
 
 I learned about `event.target.closest()` to find the nearest specified ancestor of event-targeted children elements.
 
+I learned that you can only use a *DOM node* once for one location in the DOM. I used `document.cloneNode()` to clone the node and use for another area of the DOM.
 
+Since older browsers do not support CSS `polygon()` and `shape()` to create complex shapes, I decided to make fallback shapes for the said browsers. And I used `@supports` to apply such CSS tools for browsers that supports.
+
+I learned about CSS `width: fit-content`.
+
+I learned about `element.getBoundingClientRect()` to find coordinates of DOM elements in the viewport.
 
 ### Continued development
 
