@@ -28,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/ericraycodes/article-preview-component](https://github.com/ericraycodes/article-preview-component)
-- Live Site URL: [https://ericraycodes.github.io/article-preview-component](https://ericraycodes.github.io/article-preview-component)
+- Solution URL: [https://github.com/ericraycodes/article-preview-component](https://github.com/ericraycodes/article-preview-component-master)
+- Live Site URL: [https://ericraycodes.github.io/article-preview-component](https://ericraycodes.github.io/article-preview-component-master)
 
 ## My process
 
