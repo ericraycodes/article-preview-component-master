@@ -1,9 +1,6 @@
-// check if DOM has loaded
-const body = document.querySelector("body");
-console.log("DOM body:", Boolean(body));
 
 // DOM REFERENCES
-const preview = document.getElementById("preview");
+const body = document.querySelector("body");
 const footer = document.getElementById("footer");
 const shareButton = document.getElementById("share-button");
 const linksBar = document.getElementById("links-bar");
@@ -17,6 +14,7 @@ fetch("./images/icon-share.svg")
     const domParser = new DOMParser();
     const xmlDoc = domParser.parseFromString(data, "text/xml");
     const shareIconSVG = xmlDoc.querySelector("svg");
+    shareIconSVG.setAttribute("class", "share-icon");
 
     // replace the <img> with <svg> within the #share-button and #share-icon-wrapper
     shareButton.replaceChild(shareIconSVG, shareButton.firstElementChild);
@@ -41,10 +39,9 @@ const showOrHideLinksBar = (event) => {
     linksBar.classList.remove("no-display");
     setTimeout(() => {
       linksBar.classList.remove("hidden");
-      linksBar.classList.remove("links-bar-hide");
-      linksBar.classList.add("links-bar-show");
+      linksBar.classList.add("visible");
       shareButton.classList.add("clicked");
-    }, 100);
+    }, 150);
   }
   // When #links-bar is not 'clicked'
   else if (
@@ -57,8 +54,7 @@ const showOrHideLinksBar = (event) => {
       linksBar.classList.add("no-display");
     }, 150);
     // hide
-    linksBar.classList.add("links-bar-hide");
-    linksBar.classList.remove("links-bar-show");
+    linksBar.classList.remove("visible");
     shareButton.classList.remove("clicked");
   }
 };

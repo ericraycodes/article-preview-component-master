@@ -18,15 +18,19 @@ body {
 
 .preview {
   max-width: 28rem;
-  background-color: white;
-  border-radius: 0.625rem;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  position: relative;
+  background-color: white;
+  border-radius: 0.625rem;
 }
 
-.banner .banner-image {
+.banner {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+}
+
+.banner-image {
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
@@ -43,13 +47,19 @@ body {
   display: flex;
   flex-direction: column;
   gap: clamp(0.8533rem, 4.2667vw, 1rem);
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  position: relative;
+  overflow: hidden;
 }
-.content h1 {
+
+.heading {
   font-size: 1.25em;
   font-weight: 700;
   color: hsl(217deg, 19%, 35%);
 }
-.content p {
+
+.text-body {
   color: hsl(214deg, 17%, 51%);
   font-weight: 500;
   line-height: 1.5;
@@ -67,64 +77,62 @@ body {
   display: flex;
   gap: 1rem;
 }
-.publisher .avatar {
+
+.publisher-avatar {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
 }
-.publisher .details {
+
+.publisher-details {
   font-style: normal;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-.publisher .details strong {
+
+.publisher-name {
   color: hsl(217deg, 19%, 35%);
 }
-.publisher .details time {
+
+.date-published {
   font-weight: 500;
   color: hsla(214deg, 17%, 51%, 0.75);
 }
 
 .share-button {
   all: unset;
+  background-color: hsl(210deg, 46%, 95%);
   height: 2rem;
   aspect-ratio: 1/1;
-  background-color: hsl(210deg, 46%, 95%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.share-button svg > path {
+
+.share-icon > path {
   fill: hsl(214deg, 17%, 51%);
 }
+
 .share-button:hover {
   cursor: pointer;
   background-color: hsla(210deg, 30%, 60%, 0.5);
 }
-.share-button:active {
-  background-color: hsl(214deg, 17%, 51%);
-}
-.share-button:active svg > path {
-  fill: hsl(210deg, 46%, 95%);
-}
-.share-button:focus-visible {
-  outline: 0.25rem solid hsl(210deg, 46%, 50%);
-}
 
-.clicked {
-  background-color: hsl(214deg, 17%, 51%);
-}
-.clicked svg > path {
-  fill: hsl(210deg, 46%, 95%);
-}
-
+.share-button:active,
+.clicked,
 .clicked:hover {
   background-color: hsl(214deg, 17%, 51%);
 }
-.clicked:hover svg > path {
+.share-button:active .share-icon > path,
+.clicked .share-icon > path,
+.clicked:hover .share-icon > path {
   fill: hsl(210deg, 46%, 95%);
+}
+
+.share-button:focus-visible {
+  outline: 0.2rem solid hsl(210deg, 46%, 50%);
 }
 
 .links-bar {
@@ -136,30 +144,39 @@ body {
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  transform: translateY(0);
   bottom: -4rem;
   left: 0;
   transition: transform 0.15s;
 }
-.links-bar .links {
+
+.links-bar.visible {
+  transform: translateY(-4rem);
+}
+
+.links-bar.hidden {
+  transform: translateY(0);
+}
+
+.links {
   display: flex;
   gap: clamp(0.8533rem, 4.2667vw, 1rem);
   justify-content: space-between;
   align-items: center;
 }
-.links-bar .links strong {
+.links strong {
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 0.5em;
   color: hsl(214deg, 17%, 66%);
   font-size: 0.9em;
 }
-.links-bar .links a {
+.links a {
   display: flex;
   align-items: center;
   overflow: visible;
 }
-.links-bar .share-icon {
+
+.share-icon-wrapper {
   height: 2rem;
   aspect-ratio: 1/1;
   background-color: hsl(214deg, 17%, 51%);
@@ -168,16 +185,8 @@ body {
   align-items: center;
   justify-content: center;
 }
-.links-bar .share-icon svg > path {
+.share-icon-wrapper .share-icon > path {
   fill: hsl(210deg, 46%, 95%);
-}
-
-.links-bar-show {
-  transform: translateY(-4rem);
-}
-
-.links-bar-hide {
-  transform: translateY(0);
 }
 
 @media screen and (min-width: 60rem) {
@@ -186,48 +195,56 @@ body {
     width: 45.625rem;
     height: 17.5rem;
     flex-direction: row;
-    position: unset;
-    overflow: unset;
   }
   .banner {
-    width: 17.8125rem;
+    border-top-right-radius: unset;
+    border-bottom-left-radius: inherit;
+    width: 39%;
     flex-shrink: 0;
-    overflow: hidden;
-    border-top-left-radius: 0.625rem;
-    border-bottom-left-radius: 0.625rem;
   }
-  .banner .banner-image {
+  .banner-image {
+    height: 100%;
     width: unset;
     aspect-ratio: unset;
-    height: 100%;
   }
   .content {
     padding-block: 2rem;
     padding-inline: 2.5rem;
     gap: unset;
     justify-content: space-between;
+    overflow: unset;
   }
-  .content h1 {
+  .heading {
     font-size: 1.5em;
   }
   .footer {
-    padding: unset;
+    -webkit-padding-before: unset;
+            padding-block-start: unset;
     position: relative;
   }
-  .footer .links-bar-show {
+  .links-bar {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
     height: 3.5rem;
     border-radius: 0.625rem;
-    top: -1rem;
+    top: -5rem;
     left: unset;
     right: -6.5rem;
-    opacity: 1;
+    visibility: hidden;
+    opacity: 0;
     transition: opacity 0.125s ease-in-out;
   }
+  .links-bar.visible {
+    transform: unset;
+    opacity: 1;
+  }
+  .links-bar.hidden {
+    transform: unset;
+    opacity: 0;
+  }
   @supports ((-webkit-clip-path: polygon(0 0, 100% 0, 50% 50%)) or (clip-path: polygon(0 0, 100% 0, 50% 50%))) {
-    .footer .links-bar-show::after {
+    .links-bar::after {
       content: "";
       background-color: inherit;
       height: 1.5rem;
@@ -239,10 +256,7 @@ body {
               clip-path: polygon(0 0, 100% 0, 50% 50%);
     }
   }
-  .footer .links-bar-hide {
-    opacity: 0;
-  }
-  .footer .links-bar > .share-icon {
+  .share-icon-wrapper {
     display: none;
   }
 }

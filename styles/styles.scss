@@ -17,6 +17,8 @@ $Responsive-2rem: clamp(1.7rem, 8.5333vw, 2rem);
 $Responsive-1_75rem: clamp(1.4933rem, 7.4667vw, 1.75rem);
 $Responsive-1_5rem: clamp(1.2rem, 6.4vw, 1.5rem);
 $Responsie-1rem: clamp(0.8533rem, 4.2667vw, 1rem);
+// others
+$Round-border-edge: 0.625rem;
 
 // INITIAL RULES
 * {
@@ -25,15 +27,18 @@ $Responsie-1rem: clamp(0.8533rem, 4.2667vw, 1rem);
   margin: 0;
 }
 
+// ###  ---     MOBILE DESIGN
+
+// ---  BACKGROUND, OUTERMOST CONTAINER
 body {
-  // styles
+  // style as background
   background-color: $Light-Grayish-Blue;
 
   // typography
   font-family: "Manrope", sans-serif, Arial, Helvetica;
   font-size: $Body-font-size;
 
-  // center content, no scroll
+  // center content
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -43,42 +48,42 @@ body {
   padding-block: 4rem;
   padding-inline: $Responsive-1_75rem;
 
-  // dimension
+  // mobile min-width 320px
   min-width: 20rem;
 }
 
-// #            MOBILE LAYOUT: 320px
-
-// --   PREVIEW
+// ---  MAIN PREVIEW, MAIN CONTAINER
 .preview {
-  // dimension
-  max-width: 28rem; // 448px
+  // mobile max-width 448px
+  max-width: 28rem;
 
-  // styles
-  background-color: white;
-  border-radius: 0.625rem;
-  overflow: hidden;
-
-  // arrange content: vertical flow
+  // vertical content arrangement
   display: flex;
   flex-direction: column;
 
-  // ancestor for the hidden .links-bar
-  position: relative;
+  // styles
+  background-color: white;
+  border-radius: $Round-border-edge;
 }
 
 // --   BANNER
 .banner {
-  .banner-image {
-    // image-fit to container
-    object-fit: cover;
-    display: block;
-    aspect-ratio: 16/9;
-    width: 100%;
-  }
+  // mobile round top-edges
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+
+  // no overflow outside round edges
+  overflow: hidden;
+}
+.banner-image {
+  // image-fit to container
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 16/9;
+  width: 100%;
 }
 
-// --   CONTENT
+// --  CONTENT, TEXT BODY
 .content {
   // box spaces
   padding-inline: $Responsive-2rem;
@@ -90,19 +95,25 @@ body {
   flex-direction: column;
   gap: $Responsie-1rem;
 
-  // --   Children
-  h1 {
-    // typography
-    font-size: 1.25em;
-    font-weight: 700;
-    color: $Very-Dark-Grayish-Blue;
-  }
-  p {
-    // typography
-    color: $Desaturated-Dark-Blue;
-    font-weight: 500;
-    line-height: 1.5;
-  }
+  // bottom round edges
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+
+  // anchor socials-widget show/hide position and styling
+  position: relative;
+  overflow: hidden;
+}
+.heading {
+  // typography
+  font-size: 1.25em;
+  font-weight: 700;
+  color: $Very-Dark-Grayish-Blue;
+}
+.text-body {
+  // typography
+  color: $Desaturated-Dark-Blue;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 // --   FOOTER
@@ -115,88 +126,75 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+// --  Publisher styles
 .publisher {
   // arrange content
   display: flex;
   gap: 1rem;
-
-  // --   Children
-  .avatar {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-  }
-  .details {
-    font-style: normal;
-
-    // arrange content
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-
-    // ---  .details' Children
-    strong {
-      color: $Very-Dark-Grayish-Blue;
-    }
-    time {
-      font-weight: 500;
-      color: $Grey-3;
-    }
-  }
 }
-.share-button {
-  all: unset;
-
-  // dimension, styles
-  height: 2rem;
-  aspect-ratio: 1/1;
-  background-color: $Light-Grayish-Blue;
+.publisher-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
+}
+.publisher-details {
+  font-style: normal;
 
   // arrange content
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.publisher-name {
+  color: $Very-Dark-Grayish-Blue;
+}
+.date-published {
+  font-weight: 500;
+  color: $Grey-3;
+}
+// --  Share button with user events styles
+.share-button {
+  // remove native styles
+  all: unset;
+
+  // styles
+  background-color: $Light-Grayish-Blue;
+  height: 2rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+
+  // center icon content
+  display: flex;
   align-items: center;
   justify-content: center;
-
-  // --   Children
-  svg > path {
-    // arrow color
-    fill: $Desaturated-Dark-Blue;
-  }
-  // hover
-  &:hover {
-    cursor: pointer;
-    background-color: $Grey-hover;
-  }
-  // active
-  &:active {
-    background-color: $Desaturated-Dark-Blue;
-
-    svg > path {
-      // change the arrow color
-      fill: $Light-Grayish-Blue;
-    }
-  }
-  &:focus-visible {
-    outline: 0.25rem solid $Ouline-blue-1;
-  }
 }
-.clicked {
-  background-color: $Desaturated-Dark-Blue;
-
-  svg > path {
-    // change the arrow color
-    fill: $Light-Grayish-Blue;
-  }
+// svg icon
+.share-icon > path {
+  // arrow color
+  fill: $Desaturated-Dark-Blue;
 }
+// on mouse hover
+.share-button:hover {
+  cursor: pointer;
+  background-color: $Grey-hover;
+}
+// on mouse click or touch, and when clicked
+.share-button:active,
+.clicked,
 .clicked:hover {
+  // change in background color
   background-color: $Desaturated-Dark-Blue;
 
-  svg > path {
-    // change the arrow color
+  .share-icon > path {
+    // change in arrow color
     fill: $Light-Grayish-Blue;
   }
 }
+// on keyboard tab-focused
+.share-button:focus-visible {
+  outline: 0.2rem solid $Ouline-blue-1;
+}
+// --   Socials widget
 .links-bar {
   // styles, spaces
   background-color: $Very-Dark-Grayish-Blue;
@@ -214,102 +212,89 @@ body {
   // position
   position: absolute;
 
-  // hidden
-  transform: translateY(0);
-
-  // mobile position
+  // mobile design position
   bottom: -4rem;
   left: 0;
 
   // transition when showing/hiding
   transition: transform 0.15s;
-
-  // --   Children
-  .links {
-    // arrange content
-    display: flex;
-    gap: $Responsie-1rem;
-    justify-content: space-between;
-    align-items: center;
-
-    // ---  .links' Children
-    strong {
-      // typography
-      text-transform: uppercase;
-      font-weight: 500;
-      letter-spacing: 0.5em;
-      color: $Grey-2;
-      font-size: 0.9em;
-    }
-    a {
-      // arrange content
-      display: flex;
-      align-items: center;
-      overflow: visible;
-    }
-  }
-  .share-icon {
-    // dimension, styles
-    height: 2rem;
-    aspect-ratio: 1/1;
-    background-color: $Desaturated-Dark-Blue;
-    border-radius: 50%;
-
-    // arrange content
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    svg > path {
-      fill: $Light-Grayish-Blue;
-    }
-  }
 }
-
-// mobile placement of  links-bar when shown/hidden
-.links-bar-show {
+// mobile design transforms of links-bar when shown
+.links-bar.visible {
   transform: translateY(-4rem);
 }
-.links-bar-hide {
+// mobile design transforms of links-bar when hidden
+.links-bar.hidden {
   transform: translateY(0);
 }
-// # end of: MOBILE LAYOUT
+.links {
+  // arrange content
+  display: flex;
+  gap: $Responsie-1rem;
+  justify-content: space-between;
+  align-items: center;
 
-// #            DESKTOP LAYOUT: 960px
+  // ---  .links' Children
+  strong {
+    // typography
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.5em;
+    color: $Grey-2;
+    font-size: 0.9em;
+  }
+  a {
+    // arrange content
+    display: flex;
+    align-items: center;
+    overflow: visible;
+  }
+}
+.share-icon-wrapper {
+  // dimension, styles
+  height: 2rem;
+  aspect-ratio: 1/1;
+  background-color: $Desaturated-Dark-Blue;
+  border-radius: 50%;
+
+  // arrange content
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .share-icon > path {
+    fill: $Light-Grayish-Blue;
+  }
+}
+// ###  ---     end of: MOBILE DESIGN
+
+// ###  ---     DESKTOP LAYOUT: 960px
 @media screen and (min-width: 60rem) {
   .preview {
-    // dimension
+    // remove mobile width limitation
     max-width: unset;
+
+    // dimensions
     width: 45.625rem; // 730px
     height: 17.5rem; // 280px
 
-    // arrange content: horizontal flow
+    // horizontal arrangement
     flex-direction: row;
-
-    // revert position for the #links bar tooltip to overflow
-    position: unset;
-
-    // show the #links-bar when overflowed
-    overflow: unset;
   }
   .banner {
+    // round edges
+    border-top-right-radius: unset;
+    border-bottom-left-radius: inherit;
+
     // dimension
-    width: 17.8125rem;
+    width: 39%;
     flex-shrink: 0;
-
-    // content
-    overflow: hidden;
-
-    // border style
-    border-top-left-radius: 0.625rem;
-    border-bottom-left-radius: 0.625rem;
-
-    .banner-image {
-      // fit to container
-      width: unset;
-      aspect-ratio: unset;
-      height: 100%;
-    }
+  }
+  .banner-image {
+    // how image fits to the container
+    height: 100%;
+    width: unset;
+    aspect-ratio: unset;
   }
   .content {
     // spaces
@@ -318,63 +303,71 @@ body {
     gap: unset;
     justify-content: space-between;
 
-    h1 {
-      font-size: 1.5em;
-    }
+    // show socials widget overflow
+    overflow: unset;
+  }
+  .heading {
+    font-size: 1.5em;
   }
   .footer {
-    padding: unset;
+    // remove padding from mobile layout
+    padding-block-start: unset;
 
-    // anchor the #links-bar position
+    // anchor socials widget position
     position: relative;
+  }
+  .links-bar {
+    // dimension, round edges
+    width: fit-content;
+    height: 3.5rem;
+    border-radius: 0.625rem;
 
-    .links-bar-show {
-      // dimension, round edges
-      width: fit-content;
-      height: 3.5rem;
-      border-radius: 0.625rem;
+    // position
+    top: -5rem;
+    left: unset;
+    right: -6.5rem;
 
-      // position
-      top: -1rem;
-      left: unset;
-      right: -6.5rem;
+    // not visible at first
+    visibility: hidden;
+    opacity: 0;
 
-      // transition
-      opacity: 1;
-      transition: opacity 0.125s ease-in-out;
-    }
-    @supports (clip-path: polygon(0 0, 100% 0, 50% 50%)) {
-      .links-bar-show::after {
-        // box style, blend with parent
-        content: "";
-        background-color: inherit;
+    // transition
+    transition: opacity 0.125s ease-in-out;
+  }
+  .links-bar.visible {
+    transform: unset;
+    opacity: 1;
+  }
+  .links-bar.hidden {
+    transform: unset;
+    opacity: 0;
+  }
+  @supports (clip-path: polygon(0 0, 100% 0, 50% 50%)) {
+    .links-bar::after {
+      // box style, blend with parent
+      content: "";
+      background-color: inherit;
 
-        // dimenstion
-        height: 1.5rem;
-        aspect-ratio: 1/1;
+      // dimenstion
+      height: 1.5rem;
+      aspect-ratio: 1/1;
 
-        // position, absolute
-        position: inherit;
-        left: calc(50% - 0.75rem);
-        bottom: -1.5rem;
+      // position, absolute
+      position: inherit;
+      left: calc(50% - 0.75rem);
+      bottom: -1.5rem;
 
-        // shape: inverted triangle
-        clip-path: polygon(0 0, 100% 0, 50% 50%);
-      }
-    }
-    .links-bar-hide {
-      opacity: 0;
-    }
-
-    .links-bar > .share-icon {
-      display: none;
+      // shape: inverted triangle
+      clip-path: polygon(0 0, 100% 0, 50% 50%);
     }
   }
+  .share-icon-wrapper {
+    display: none;
+  }
 }
-// # end of: DESKTOP LAYOUT
+// ###  ---     end of: DESKTOP LAYOUT
 
 // -----    PRE STYLED CLASSES FOR LINKS WIDGET
-
 // show
 .visible {
   visibility: visible;
